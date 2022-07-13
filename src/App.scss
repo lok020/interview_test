@@ -1,0 +1,135 @@
+$border-radius: 10px;
+$input-border-radius: 7px;
+
+.App {
+  //text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d2e1ff;
+  
+  .form-area {
+    width: 80vw;
+    background: #f5f7f9;
+    border-radius: $border-radius;
+    box-shadow: 0px 0px 20px 10px #afbbd4;
+
+    .step-area{
+      padding: 5px;
+
+      .title{
+        position: relative;
+        //height: 40px;
+        width: 100%;
+        padding: 20px 0;
+        background-image: linear-gradient(#fec500, #ebab2e);
+        border-radius: $border-radius;
+
+        .text{
+          color: white;
+          text-shadow: 2px 2px gray;
+          padding: 20px;
+        }
+      }
+  
+      .expand{
+        height: 190px;
+        background: #dedede;
+        margin-top: -10px;
+        padding: 10px;
+        border-radius: 0 0 $border-radius $border-radius;
+
+        .expand-row{
+          width: 70%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .expand-col{
+            width: 40%;
+            padding: 10px;
+          }
+        }
+
+        .expand-row-for-2-column{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .col-1{
+            width: 70%;
+          }
+
+          .col-2{
+            width: 30%;
+          }
+        }
+
+        .input-area{
+          display: flex;
+          flex-direction: column;
+
+          .label{
+            font-weight: bold;
+            padding: 5px;
+          }
+  
+          .input {
+            border-radius: $input-border-radius;
+            border: none;
+            -webkit-box-shadow:inset 0 0 10px gray;
+               -moz-box-shadow:inset 0 0 10px gray;
+                    box-shadow:inset 0 0 10px gray;
+        
+            background: white;
+            padding: 0 10px;
+          }
+  
+          .text{
+            height: 40px;
+          }
+  
+          .list-of-text{
+            display: flex;
+            height: 40px;
+          }
+
+          .special-text{
+            height: 40px;
+            width: 50px;
+            margin: 0 5px;
+          }
+  
+          .select{
+            height: 40px;
+            width: 70%;
+          }
+
+          .textarea{
+            height: 150px;
+            resize: none;
+          }
+        }
+
+        .btn-area{
+          position: relative;
+
+          .action-btn{
+            width: 130px;
+            height: 30px;
+            border-radius: $border-radius;
+            border: none;
+            color: #dfdfec;
+            background-image: linear-gradient(#454cb0, #7463d1);
+            float: right;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
