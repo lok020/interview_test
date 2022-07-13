@@ -1,51 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TitleNInputText from '../COMPONENT/TitleNInputText';
 
-function Step1({is_expand, expand, nextStep}) {
-    const [firstName, setFirstName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [email, setEmail] = useState("");
-    // warning index representaion -> [firstName, surname, email]
-    const [warning, setWarning] = useState([false, false, false]);
-    
+function Step1({is_expand, expand, content, update, warning, check}) {    
     const updateFirstName = (e) => {
-        setFirstName(e.target.value);
+        let new_content = JSON.parse(JSON.stringify(content));
+        new_content[0] = e.target.value;
+        update(new_content);
     }
     
     const updateSurname = (e) => {
-        setSurname(e.target.value);
+        let new_content = JSON.parse(JSON.stringify(content));
+        new_content[1] = e.target.value;
+        update(new_content);
     }
     
     const updateEmail = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const validation = () => {
-        // deep copy for edit
-        let new_warning = JSON.parse(JSON.stringify(warning));
-        // first name checking
-        if (firstName !== "")
-            new_warning[0] = false;
-        else
-            new_warning[0] = true;
-            
-        // surname checking
-        if (surname !== "")
-            new_warning[1] = false;
-        else
-            new_warning[1] = true;
-
-        // email checking
-        if (email !== "" && email.includes("@") &&
-            email.slice(-1) !== "@" && email.includes(".") &&
-            email.slice(-1) !== ".")
-            new_warning[2] = false;
-        else
-            new_warning[2] = true;
-        setWarning(new_warning);
-
-        if (!new_warning.includes(true)) nextStep();
+        let new_content = JSON.parse(JSON.stringify(content));
+        new_content[2] = e.target.value;
+        update(new_content);
     }
 
     return (
@@ -54,12 +27,12 @@ function Step1({is_expand, expand, nextStep}) {
             {is_expand ?
             <div className='expand'>
                 <div className='expand-row'>
-                    <TitleNInputText title={"First Name"} input={firstName} updateInput={updateFirstName} warning={warning[0]}/>
-                    <TitleNInputText title={"Surname"} input={surname} updateInput={updateSurname} warning={warning[1]}/>
-                    <TitleNInputText title={"Email Address:"} input={email} updateInput={updateEmail} warning={warning[2]}/>
+                    <TitleNInputText title={"First Name"} input={content[0]} updateInput={updateFirstName} warning={warning[0]}/>
+                    <TitleNInputText title={"Surname"} input={content[1]} updateInput={updateSurname} warning={warning[1]}/>
+                    <TitleNInputText title={"Email Address:"} input={content[2]} updateInput={updateEmail} warning={warning[2]}/>
                 </div>
                 <div className='btn-area'>
-                    <button className='action-btn' onClick={validation}>
+                    <button className='action-btn' onClick={() => check()}>
                         {"Next >"}
                     </button>
                 </div>
