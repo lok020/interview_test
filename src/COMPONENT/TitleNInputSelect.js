@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TitleNInputSelect({title, input, updateInput, list}) {
+function TitleNInputSelect({title, input, updateInput, list, warning}) {
 
     return (
         <form className='input-area expand-col'>
@@ -13,6 +13,7 @@ function TitleNInputSelect({title, input, updateInput, list}) {
                     </option>
                 )}
             </select>
+            {warning && <label className='warning'>{`Fill in the missing ${title}`}</label>}
         </form>
     )
 }
