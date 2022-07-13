@@ -5,7 +5,7 @@ function TitleNInput({title, input, updateInput, warning}) {
         <form className='input-area expand-col'>
             <label className='label'>{title}</label>
             <input className='input text' type={"text"} value={input} onChange={updateInput}/>
-            {warning && <label className='warning'>{`Fill in the missing ${title}`}</label>}
+            {warning && <label className='warning'>{"invalid input"}</label>}
         </form>
     )
 }

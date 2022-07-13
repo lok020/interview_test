@@ -13,7 +13,7 @@ function TitleNInputSelect({title, input, updateInput, list, warning}) {
                     </option>
                 )}
             </select>
-            {warning && <label className='warning'>{`Fill in the missing ${title}`}</label>}
+            {warning && <label className='warning'>{"invalid input"}</label>}
         </form>
     )
 }
