@@ -17,18 +17,6 @@ function App() {
   // warning index representaion -> [comments]
   const [step3_warning, setStep3Warning] = useState([false]);
 
-  const updateStep1 = (content) => {
-    setStep1Content(content);
-  }
-  
-  const updateStep2 = (content) => {
-    setStep2Content(content);
-  }
-  
-  const updateStep3 = (content) => {
-    setStep3Content(content);
-  }
-
   const expandStep1 = () => {
     setStep([true, false, false]);
   }
@@ -39,6 +27,18 @@ function App() {
   
   const expandStep3 = () => {
     setStep([false, false, true]);
+  }
+
+  const updateStep1 = (content) => {
+    setStep1Content(content);
+  }
+  
+  const updateStep2 = (content) => {
+    setStep2Content(content);
+  }
+  
+  const updateStep3 = (content) => {
+    setStep3Content(content);
   }
   
   const warningonStep1 = () => {
