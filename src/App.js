@@ -121,8 +121,7 @@ function App() {
   }
 
   const save = () => {
-    // SAVE
-    console.log("SAVEEEEEEE");
+    // SAVE ACTION
   }
 
   return (

@@ -22,7 +22,7 @@ function Step1({is_expand, expand, content, update, warning, check}) {
     }
 
     return (
-        <div className='step-area'>
+        <div className='step-area' data-testid="step1">
             <div className='title' onClick={() => expand()}><label className='text'>{"Step 1: Your details"}</label></div>
             {is_expand ?
             <div className='expand'>
