@@ -117,11 +117,10 @@ function App() {
     else
       new_warning[0] = true;    
     setStep3Warning(new_warning);
-    // if (new_warning.includes(true)) expandStep3();
-    // else if (warningonStep1()) expandStep1();
-    // else if (warningonStep2()) expandStep2();
-    // else save();
-    save();
+    if (new_warning.includes(true)) expandStep3();
+    else if (warningonStep1()) expandStep1();
+    else if (warningonStep2()) expandStep2();
+    else save();
   }
 
   const save = async () => {
