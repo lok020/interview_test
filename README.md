@@ -39,13 +39,26 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### `npm run devStart`
+### `npm run dev-server`
 
 This trigger nodemon on the server.js, a node app using express and sequelize to post, get, put, and delete from sqlite. Nodemon allow refresh after each saving without close and reopen terminal on each update on the server side code.
-By using these functions, first run the command `npm run devStart`. It will host a server.
-Then open postman, insert url `localhost:3000/form` and the method between post, get and put to do the add form, get all form, get form by email, update a form by email, delete a form by email action.
+By using these functions, first run the command `npm run dev-server`. It will host a server, and watch every changes and action from frontend side, and update table accordingly.
+
+### `npm run server`
+
+Basically the same as 'npm run dev-server'. The only difference is this script doesn't run nodemon, instead it run on node, and doesn't check all update and changes on the frontend. Another word, every frontend update will result in user menuelly exit node app, and restart node app to see all the changes.
 
 **Note: make sure add form before get form, prevent confusion on getting empty form(s). 
 
 
+## App Usage / Flow / Steps
+1. Open a terminal, and run following commands
+git clone https://github.com/lok020/interview_test.git
+cd interview_test
+npm install
+npm start
+2. Open another terminal, go to the repo folder, run command 'npm run server' or 'npm run dev-server'
+3. From the broswer, Fill up the form following all the instructions and empty spaces on the screen.
+4. After all empty spaces are filled, click on Step 3 'Next >' button.
+5. The form data will then save in the table through server.js
 
