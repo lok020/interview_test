@@ -38,9 +38,9 @@ function Step2({is_expand, expand, content, update, warning, check}) {
             {is_expand ?
             <div className='expand'>
                 <div className='expand-row'>
-                    <TitleNInputText title={"Telephone number"} input={content[0]} updateInput={updateTelephone} warning={warning[0]}/>
+                    <TitleNInputText title={"Telephone number"} type={"number"} input={content[0]} updateInput={updateTelephone} warning={warning[0]}/>
                     <TitleNInputSelect title={"Gender"} input={content[1]} updateInput={updateGender} list={["Male", "Female"]} warning={warning[1]}/>
-                    <TitleNListOfInputText title={"Date of birth"} input={[content[2], content[3], content[4]]} updateInput={updateDateOfBirth} warning={[warning[2], warning[3], warning[4]]} warning_key={["year", "month", "day"]}/>
+                    <TitleNListOfInputText title={"Date of birth"} type={"number"} input={[content[2], content[3], content[4]]} updateInput={updateDateOfBirth} warning={[warning[2], warning[3], warning[4]]} warning_key={["year", "month", "day"]}/>
                 </div>
                 <div className='btn-area'>
                     <button className='action-btn' onClick={() => check()}>

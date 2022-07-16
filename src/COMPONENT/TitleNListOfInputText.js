@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TitleNListOfInputText({title, input, updateInput, warning, warning_key}) {
+function TitleNListOfInputText({type, title, input, updateInput, warning, warning_key}) {
     const checkWarning = () => {
         let result = "";
         for (let i in warning){
@@ -15,7 +15,7 @@ function TitleNListOfInputText({title, input, updateInput, warning, warning_key}
             <label className='label'>{title}</label>
             <div className='list-of-text'>
                 {input.map((date, index) => 
-                    <input className='input special-text' key={index} type={"text"} id={index} value={date} onChange={updateInput}/>
+                    <input className='input special-text' key={index} type={type} id={index} value={date} onChange={updateInput}/>
                 )}
             </div>
             {warning.includes(true) && <label className='warning'>

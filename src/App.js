@@ -5,6 +5,9 @@ import Step1 from "./STEPS/Step1";
 import Step2 from "./STEPS/Step2";
 import Step3 from "./STEPS/Step3";
 
+// const { Sequelize } = require('sequelize');
+// import Sequelize from 'sequelize';
+
 function App() {
   const [step, setStep] = useState([true, false, false]);
   const [step1_content, setStep1Content] = useState(["","",""]);
@@ -114,14 +117,43 @@ function App() {
     else
       new_warning[0] = true;    
     setStep3Warning(new_warning);
-    if (new_warning.includes(true)) expandStep3();
-    else if (warningonStep1()) expandStep1();
-    else if (warningonStep2()) expandStep2();
-    else save();
+    // if (new_warning.includes(true)) expandStep3();
+    // else if (warningonStep1()) expandStep1();
+    // else if (warningonStep2()) expandStep2();
+    // else save();
+    save();
   }
 
-  const save = () => {
+  const save = async () => {
     // SAVE ACTION
+    fetch("/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json" 
+      },
+      body: JSON.stringify({
+        firstName: step1_content[0],
+        surname: step1_content[1],
+        email: step1_content[2],
+        telephone: step2_content[0],
+        gender: step2_content[1],
+        year: step2_content[2],
+        month: step2_content[3],
+        day: step2_content[4],
+        comments: step3_content[0],
+      })
+    })
+    .then( res => {
+      if (res.ok){
+          console.log("Init saving process");
+          return res.json();
+      }
+      else {
+          console.log("Server not connected. Save process failed");
+      }
+    })
+    .then( data => console.log(data) )
+    .catch( error => console.log("ERROR", error) )
   }
 
   return (
